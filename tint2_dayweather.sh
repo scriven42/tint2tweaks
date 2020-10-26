@@ -10,7 +10,7 @@
 top_line=$(date +'%A, %F')
 
 # Open Weather Map API code, register to http://openweathermap.org to get one ;)
-API_KEY="25b56469a1599b3cc2215865f5422ea7"
+API_KEY="<>"
 
 # Check on http://openweathermap.org/find
 CITY_ID="5911606"
