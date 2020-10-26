@@ -11,6 +11,7 @@ Some tint2 executors I've created/glued together.
   > This is a simple MTP wrapper that shows you if your MTP device (tested with my S9) is connected, and if so what battery percentage it has or if it's connected as a drive (not both yet, one or the other). I have it configured with a right-click action to mount my phone and left-click to unmount it.
 1. **tint2_rpistatus.sh**
   > This executor is meant to parse the Raspberry Pi status code for low voltage and other system problems. Right now it only shows 0 problem or all problems, as I haven't worked out the code nor have I trigged the necessary problems to do so. Eventually.
-
+1. **tint2_systemstats.sh**
+  > This 2-line executor shows CPU info on the top line (overall busy percentage and temperature), and RAM used/available in MB on the bottom. CPU temp is for Raspberry Pi systems.
 
 Various code sources were used or glued together to create these, and I think I documented them all in the relevant script. I hope other folx find these as helpful as I do.
