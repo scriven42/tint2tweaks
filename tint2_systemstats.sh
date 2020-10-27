@@ -99,6 +99,9 @@ top_line="<b>CPU:</b> $cpu_used <b>|</b> $cpu_temp"
 # Cheers!
 # Addy
 
+HIGH_RAM_USE=85
+WARN_RAM_USE=55
+
 mem_info=$(</proc/meminfo)
 		mem_info=$(echo $(echo $(mem_info=${mem_info// /}; echo ${mem_info//kB/})))
 		for m in $mem_info; do
@@ -110,6 +113,13 @@ mem_info=$(</proc/meminfo)
 		done
 		usedmem=$((usedmem / 1024))
 		totalmem=$((totalmem / 1024))
+		usedpercent=`echo "$usedmem/$totalmem*100"|bc -l`
+		usedpercent=`printf "%.*f" 2 "$usedpercent"`
+		if (( $(echo "$usedpercent > $HIGH_RAM_USE"|bc -l) )); then
+    			usedmem="<span fgcolor=\"red\">$usedmem</span>"
+		elif (( $(echo "$usedpercent > $WARN_RAM_USE"|bc -l) )); then
+    			usedmem="<span fgcolor=\"orange\">$usedmem</span>"
+		fi
 		mem="${usedmem}<b>/</b>${totalmem}MB"
 
 ## Complete summary
